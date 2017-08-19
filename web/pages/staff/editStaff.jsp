@@ -36,23 +36,23 @@
   </tr>
 </table>
 <s:debug></s:debug><s:property value="#request.crmDepartmentList[0].postSet"></s:property>
-<form  method="post" >
+<form action="/first_update" method="post" >
 	
-	<input type="hidden" name="staffId" value="2c9091c14c78e58b014c78e7ecd90007"/>
+	<input type="hidden" name="crmStaff.staffId" value="<s:property value="#request.findStaff.staffId"/>"/>
 	
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>登录名：</td>
-	    <td><input type="text" name="loginName"   value="<s:property value="#request.findStaff.loginName"></s:property>"  /> </td>
+	    <td><input type="text" name="crmStaff.loginName"   value="<s:property value="#request.findStaff.loginName"></s:property>"  /> </td>
 	    <td>密码：</td>
-	    <td><input type="password" name="loginPwd" value="<s:property value="#request.findStaff.loginPwd"></s:property>" /> </td>
+	    <td><input type="password" name="crmStaff.loginPwd" value="<s:property value="#request.findStaff.loginPwd"></s:property>" /> </td>
 	  </tr>
 	 <tr>
 	    <td>姓名：</td>
-	    <td><input type="text" name="staffName" value="<s:property value="#request.findStaff.staffName"></s:property> "/> </td>
+	    <td><input type="text" name="crmStaff.staffName" value="<s:property value="#request.findStaff.staffName"></s:property> "/> </td>
 	    <td>性别：</td>
 	    <td>
-	    	<input type="radio" name="gender" checked="checked" value="<s:property value="#request.findStaff.gender"></s:property>"/>男
+	    	<input type="radio" name="crmStaff.gender" checked="checked" value="<s:property value="#request.findStaff.gender"></s:property>"/>男
 	    	<input type="radio" name="gender" value="<s:property value="#request.findStaff.gender"></s:property>"/>女
 	    </td>
 	  </tr>
@@ -61,8 +61,8 @@
 	    <td width="10%">所属部门：</td>
 	    <td width="20%">
 
-	    	<select name="crmDepartment.depName" id="dep" >
-
+	    	<select name="crmStaff.post.department.depId" id="dep" >
+				<option value="<s:property value="#request.findStaff.post.department.depId"></s:property>"><s:property value="#request.findStaff.post.department.depName"/></option>
 			    <option value="">----请--选--择----</option>
 				<%--<s:iterator value="#request.crmDepartmentList" var="dep">--%>
 			    <%--<option value="<s:property value="#dep.depId"></s:property>" selected="selected"><s:property value="#dep.depName"></s:property></option>--%>
@@ -72,7 +72,8 @@
 	    </td>
 	    <td width="8%">职务：</td>
 	    <td width="62%">
-	    	<select name="crmPost.postName" id="post">
+	    	<select name="crmStaff.post.postId" id="post">
+				<option value="<s:property value="#request.findStaff.post.postId"></s:property>"><s:property value="#request.findStaff.post.postName"/></option>
 			    <option value="">----请--选--择----</option>
                <%--<s:iterator value="#request.crmDepartmentList.postSet" var="post">--%>
 			    <%--<option  value="<s:property value="#post.postName"></s:property>"><s:property value="#post.postName"></s:property></option>--%>
@@ -85,7 +86,7 @@
 	  <tr>
 	    <td width="10%">入职时间：</td>
 	    <td width="20%">
-	    	<input type="text" name="onDutyDate" value="<s:property value="#request.findStaff.onDutyDate"></s:property>" readonly="readonly" onfocus="c.showMoreDay=true; c.show(this);"/>
+	    	<input type="text" name="crmStaff.onDutyDate" value="<s:property value="#request.findStaff.onDutyDate"></s:property>" readonly="readonly" onfocus="c.showMoreDay=true; c.show(this);"/>
 	    </td>
 	    <td width="8%"></td>
 	    <td width="62%"></td>

@@ -14,7 +14,7 @@
                      class="com.lanou.bean.CrmDepartment"  column="depId" cascade="all">
         </many-to-one>
         <!--  职务和员工的关系：一对多，一个职务可以有多个员工  -->
-        <set name="staffSet">
+        <set name="staffSet" inverse="true">
             <key column="postId" />
             <one-to-many class="com.lanou.bean.CrmStaff"/>
         </set>

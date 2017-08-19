@@ -17,6 +17,6 @@ public interface StaffService {
     public List<CrmStaff> findAllStaff();
     public CrmStaff findByid(String staffId);
     public List<CrmDepartment> findDepart();
-
+    public String update(CrmStaff crmStaff);
 
 }

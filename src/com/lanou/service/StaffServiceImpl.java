@@ -47,6 +47,12 @@ public class StaffServiceImpl implements StaffService {
         return  staffDao.findDepart();
     }
 
+    @Override
+    public String update(CrmStaff crmStaff) {
+        staffDao.update(crmStaff);
+        return null;
+    }
+
     // 查询部门
 
 

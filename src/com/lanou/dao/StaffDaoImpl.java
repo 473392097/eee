@@ -52,22 +52,24 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
         return  this.getHibernateTemplate().get(CrmStaff.class,staffId);
     }
 
+    @Override
+    public String update(CrmStaff crmStaff) {
+        this.getHibernateTemplate().update(crmStaff);
+        return null;
+    }
+
     public List<CrmDepartment> findDepart(){
         String hql="from CrmDepartment";
         List<CrmDepartment> crmDepartmentList = (List<CrmDepartment>) this.getHibernateTemplate().find(hql);
         return crmDepartmentList;
 
-    };
+    }
 
 
     public List<CrmPost> findAll(int depId) {
         String hql = "from CrmPost where department.id = ?";
         return (List<CrmPost>) this.getHibernateTemplate().find(hql,depId);
     }
-
-
-
-
 
 
     public SessionFactory getFactory() {

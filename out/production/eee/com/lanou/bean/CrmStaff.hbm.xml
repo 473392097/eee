@@ -16,6 +16,6 @@
             <column name="onDutyDate" sql-type="datetime" />
         </property>
         <!--  员工和职务的关系： 多对一 ，多个员工可以同属于一个职务 -->
-        <many-to-one name="post"  class="com.lanou.bean.CrmPost"  column="postId" />
+        <many-to-one name="post"  class="com.lanou.bean.CrmPost" column="postId" />
 	</class>
 </hibernate-mapping>

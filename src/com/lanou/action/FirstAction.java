@@ -57,6 +57,7 @@ public class FirstAction extends ActionSupport{
 
 //基本数据回显
      public String preEdit() throws IOException {
+         System.out.println(crmStaff);
          CrmStaff findStaff = staffService.findByid(crmStaff.getStaffId());
          System.out.print("编辑:"+findStaff);
 //         List<CrmDepartment>  crmDepartmentList = staffService.findDepart();
@@ -84,6 +85,12 @@ public class FirstAction extends ActionSupport{
          return NONE;
      }
 
+     public String update(){
+         System.out.println();
+         System.out.println("需要更新的staff为:"+crmStaff);
+         staffService.update(crmStaff);
+         return  "updatesuccess";
+     }
 
     public StaffServiceImpl getStaffService() {
         return staffService;
