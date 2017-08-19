@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="crm@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="crm">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="gjp"/>
+    <schema id="4" parent="1" name="hero"/>
+    <schema id="5" parent="1" name="hero_store"/>
+    <schema id="6" parent="1" name="hibernate"/>
+    <schema id="7" parent="1" name="Homework"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="lol"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="performance_schema"/>
+    <schema id="12" parent="1" name="Project"/>
+    <schema id="13" parent="1" name="student"/>
+    <schema id="14" parent="1" name="supermarket"/>
+    <schema id="15" parent="1" name="user"/>
+    <schema id="16" parent="1" name="yinhang"/>
+    <table id="17" parent="2" name="crm_classes"/>
+    <table id="18" parent="2" name="crm_course_type"/>
+    <table id="19" parent="2" name="crm_department"/>
+    <table id="20" parent="2" name="crm_post"/>
+    <table id="21" parent="2" name="crm_staff"/>
+    <column id="22" parent="17" name="classId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="24" parent="17" name="beginTime">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="25" parent="17" name="endTime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="26" parent="17" name="status">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="27" parent="17" name="totalCount">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="28" parent="17" name="courseTypeId">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="17" name="classesSet">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="30" parent="17" name="FKat667kro8saq6oq1pjy91j90g">
+      <ColNames>courseTypeId</ColNames>
+    </index>
+    <index id="31" parent="17" name="FKdhsujtywb8i62q64viejefoax">
+      <ColNames>classesSet</ColNames>
+    </index>
+    <key id="32" parent="17" name="PRIMARY">
+      <ColNames>classId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="17" name="FKat667kro8saq6oq1pjy91j90g">
+      <ColNames>courseTypeId</ColNames>
+      <RefSchemaName>crm</RefSchemaName>
+      <RefTableName>crm_course_type</RefTableName>
+      <RefColNames>courseTypeId</RefColNames>
+    </foreign-key>
+    <foreign-key id="34" parent="17" name="FKdhsujtywb8i62q64viejefoax">
+      <ColNames>classesSet</ColNames>
+      <RefSchemaName>crm</RefSchemaName>
+      <RefTableName>crm_course_type</RefTableName>
+      <RefColNames>courseTypeId</RefColNames>
+    </foreign-key>
+    <column id="35" parent="18" name="courseTypeId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="18" name="courseCost">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="37" parent="18" name="total">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="38" parent="18" name="remark">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="18" name="courseName">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="40" parent="18" name="PRIMARY">
+      <ColNames>courseTypeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="19" name="depId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="19" name="depName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="43" parent="19" name="PRIMARY">
+      <ColNames>depId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="20" name="postId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="20" name="postName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="20" name="depId">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="47" parent="20" name="FKgk6yh1w0w92hb9kmmh5fof8h6">
+      <ColNames>depId</ColNames>
+    </index>
+    <key id="48" parent="20" name="PRIMARY">
+      <ColNames>postId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="20" name="FKgk6yh1w0w92hb9kmmh5fof8h6">
+      <ColNames>depId</ColNames>
+      <RefSchemaName>crm</RefSchemaName>
+      <RefTableName>crm_department</RefTableName>
+      <RefColNames>depId</RefColNames>
+    </foreign-key>
+    <column id="50" parent="21" name="staffId">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="21" name="loginName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="52" parent="21" name="loginPwd">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="53" parent="21" name="staffName">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="54" parent="21" name="gender">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="55" parent="21" name="onDutyDate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="56" parent="21" name="postId">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="57" parent="21" name="FKtrgxem3u7h6d33d9hpymksl01">
+      <ColNames>postId</ColNames>
+    </index>
+    <key id="58" parent="21" name="PRIMARY">
+      <ColNames>staffId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="59" parent="21" name="FKtrgxem3u7h6d33d9hpymksl01">
+      <ColNames>postId</ColNames>
+      <RefSchemaName>crm</RefSchemaName>
+      <RefTableName>crm_post</RefTableName>
+      <RefColNames>postId</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.lanou.bean.CrmStaff" table="crm_staff" >
+        <id name="staffId">
+            <generator class="uuid" />
+        </id>
+        <property name="loginName"/>
+        <property name="loginPwd"/>
+        <property name="staffName"/>
+        <property name="gender"/>
+        <property name="onDutyDate">
+            <!-- 使用的是数据库中的时间 -->
+            <column name="onDutyDate" sql-type="datetime" />
+        </property>
+        <!--  员工和职务的关系： 多对一 ，多个员工可以同属于一个职务 -->
+        <many-to-one name="post"  class="com.lanou.bean.CrmPost"  column="postId" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+
+    <aop:config proxy-target-class="true"> </aop:config>
+    <!--扫描注解-->
+    <context:component-scan base-package="com.lanou.*"/>
+    <!--引入hibernate.cfg.xml文件-->
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>-->
+
+    <!--</bean>-->
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/crm?useUnicode=true&amp;characterEncoding=utf8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="lanouhn"/>
+    </bean>
+
+    <!-- 配置Hibernate相关属性 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <!-- 注入连接池 -->
+    <property name="dataSource" ref="dataSource"/>
+    <!-- 配置Hibernate的属性 -->
+    <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            <prop key="hibernate.show_sql">true</prop>
+            <prop key="hibernate.format_sql">true</prop>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <!--配置 getCurrentSession 结合Spring管理-->
+            <prop key="org.springframework.orm.hibernate5.SpringSessionContext"></prop>
+        </props>
+    </property>
+    <!-- 加载Hibernate中的映射文件 -->
+    <property name="mappingResources">
+        <list>
+            <value>com/lanou/bean/CrmClasses.hbm.xml</value>
+            <value>com/lanou/bean/CrmCourseType.hbm.xml</value>
+            <value>com/lanou/bean/CrmDepartment.hbm.xml</value>
+            <value>com/lanou/bean/CrmPost.hbm.xml</value>
+            <value>com/lanou/bean/CrmStaff.hbm.xml</value>
+        </list>
+    </property>
+    </bean>
+
+
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="staffDao" class="com.lanou.dao.StaffDaoImpl">
+        <property  name="hibernateTemplate" ref="hibernateTemplate"/>
+    </bean>
+
+
+    <bean id="staffService" class="com.lanou.service.StaffServiceImpl">
+         <property name="staffDao" ref="staffDao"/>
+    </bean>
+
+    <bean id="first" class="com.lanou.action.FirstAction" scope="prototype">
+        <property name="staffService" ref="staffService"></property>
+    </bean>
+
+    <!--****************************************************************************-->
+
+    <!--把hibernateTemplate依赖注入到departDao-->
+    <bean id="departDaoImpl" class="com.lanou.dao.DepartDaoImpl">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+     </bean>
+
+    <bean  id="departService" class="com.lanou.service.DepartServiceImpl">
+        <property name="departDao"  ref="departDaoImpl"  ></property>
+    </bean>
+
+
+
+
+
+
+
+
+
+    <!-- 事务管理-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>

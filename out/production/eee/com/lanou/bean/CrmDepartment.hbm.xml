@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.lanou.bean.CrmDepartment" table="crm_department" >
+    <id name="depId">
+        <generator class="uuid" />
+    </id>
+    <property name="depName"/>
+    <!-- //部门和职务关系：一对多 ， 一个部门对应多个职务     -->
+        <set name="postSet" cascade="all" lazy="false">
+            <key column="depId"></key>
+            <one-to-many class="com.lanou.bean.CrmPost" ></one-to-many>
+        </set>
+
+</class>
+</hibernate-mapping>

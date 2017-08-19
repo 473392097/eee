@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="eee:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/eee_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="eee/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="eee" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 5.2.10-5.2.10" />
+          <element id="library" level="project" name="Spring-4.3.10.RELEASE" />
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="library" level="project" name="c3p0-0.9.1.2" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.37-bin" />
+          <element id="library" level="project" name="hibernate-c3p0-5.2.0.Final" />
+          <element id="library" level="project" name="com.springsource.com.mchange.v2.c3p0-0.9.1.2" />
+          <element id="library" level="project" name="mchange-commons-java-0.2.11" />
+          <element id="library" level="project" name="spring-web-4.3.10.RELEASE" />
+          <element id="library" level="project" name="struts2-spring-plugin-2.3.24" />
+          <element id="library" level="project" name="com.springsource.org.aspectj.weaver-1.6.8.RELEASE" />
+          <element id="library" level="project" name="com.springsource.org.aopalliance-1.0.0" />
+          <element id="library" level="project" name="ant-1.9.6副本" />
+          <element id="library" level="module" name="JUnit4" module-name="eee" />
+          <element id="library" level="project" name="javax.servlet:servlet-api:2.3" />
+          <element id="library" level="project" name="com.alibaba:fastjson:1.2.36" />
+          <element id="library" level="project" name="gson-2.2.4" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

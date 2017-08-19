@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!--<constant name="struts.objectFactory" value="spring"></constant>-->
+    <!--使用动态方法调用-->
+    <package name="first" namespace="/" extends="struts-default">
+        <action name="first_*" class="first" method="{1}">
+            <!--登录成功-->
+            <result name="success">/pages/frame.jsp</result>
+            <!--登录失败-->
+            <result name="login">/pages/login.jsp</result>
+            <!--员工管理-->
+            <result name="findAll">/pages/staff/listStaff.jsp</result>
+             <!--通过id查询员工-->
+            <result name="preEdit">/pages/staff/editStaff.jsp</result>
+        </action>
+
+        <action name="depart" class="com.lanou.action.DepartmentAction">
+            <result name="success">/pages/staff/editStaff.jsp</result>
+        </action>
+    </package>
+
+</struts>

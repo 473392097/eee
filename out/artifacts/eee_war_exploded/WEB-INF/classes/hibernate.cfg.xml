@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/crm?useUnicode=true&amp;characterEncoding=utf8</property>
+        <!--指明哪种类型的数据库-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">lanouhn</property>
+        <!--将hibernate生产的sql打印到控制台-->
+        <property name="show_sql">true</property>
+        <!--将Hibernate生成的sql语句格式化处理(语法缩进)-->
+        <property name="format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+         <!--方言-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <!--配置使用什么连接池-->
+        <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <property name="current_session_context_class">thread</property>
+
+        <mapping resource="com/lanou/bean/CrmClasses.hbm.xml"></mapping>
+        <mapping resource="com/lanou/bean/CrmCourseType.hbm.xml"></mapping>
+        <mapping resource="com/lanou/bean/CrmDepartment.hbm.xml"></mapping>
+        <mapping resource="com/lanou/bean/CrmPost.hbm.xml"></mapping>
+        <mapping resource="com/lanou/bean/CrmStaff.hbm.xml"></mapping>
+
+    </session-factory>
+</hibernate-configuration>

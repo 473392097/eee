@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ant-1.9.6副本">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ant-1.9.6副本.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant-launcher-1.9.6副本.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.4副本.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/asm-5.1副本.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
