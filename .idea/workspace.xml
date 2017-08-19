@@ -131,7 +131,6 @@
         <option value="$PROJECT_DIR$/resource/spring-config.xml" />
         <option value="$PROJECT_DIR$/src/com/lanou/bean/CrmClasses.java" />
         <option value="$PROJECT_DIR$/resource/struts.xml" />
-        <option value="$PROJECT_DIR$/web/pages/login.jsp" />
         <option value="$PROJECT_DIR$/src/com/lanou/bean/CrmStaff.hbm.xml" />
         <option value="$PROJECT_DIR$/src/spring-config.xml" />
         <option value="$PROJECT_DIR$/src/com/lanou/service/StaffServiceImpl.java" />
@@ -154,6 +153,7 @@
         <option value="$PROJECT_DIR$/web/pages/staff/addStaff.jsp" />
         <option value="$PROJECT_DIR$/web/pages/staff/editStaff.jsp" />
         <option value="$PROJECT_DIR$/web/js/cascade.js" />
+        <option value="$PROJECT_DIR$/web/pages/login.jsp" />
       </list>
     </option>
   </component>
@@ -171,8 +171,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="121" />
-    <option name="y" value="72" />
+    <option name="x" value="635" />
+    <option name="y" value="156" />
     <option name="width" value="1698" />
     <option name="height" value="875" />
   </component>
@@ -1086,7 +1086,7 @@
       <workItem from="1502933550227" duration="13553000" />
       <workItem from="1502960557050" duration="14842000" />
       <workItem from="1503017673540" duration="10705000" />
-      <workItem from="1503039880591" duration="32353000" />
+      <workItem from="1503039880591" duration="32413000" />
     </task>
     <servers />
   </component>
@@ -1105,7 +1105,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103315000" />
+    <option name="totallyTimeSpent" value="103375000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1117,8 +1117,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="121" y="72" width="1698" height="875" extended-state="0" />
-    <editor active="false" />
+    <frame x="635" y="156" width="1698" height="875" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1144,7 +1144,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968536" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10929952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10929952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
