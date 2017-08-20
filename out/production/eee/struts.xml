@@ -7,11 +7,28 @@
     <!--<constant name="struts.objectFactory" value="spring"></constant>-->
     <!--使用动态方法调用-->
     <package name="first" namespace="/" extends="struts-default">
+
+
+        <interceptors>
+            <interceptor name="myinter" class="com.lanou.action.MyInterceptor"/>
+           <interceptor-stack name="mystack">
+               <interceptor-ref name="myinter">
+                   <param name="excludeMethods">staffLogin</param>
+               </interceptor-ref>
+               <interceptor-ref name="defaultStack"></interceptor-ref>
+           </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="mystack"></default-interceptor-ref>
+        <global-results>
+            <result name="login">/pages/login.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+        </global-results>
         <action name="first_*" class="first" method="{1}">
             <!--登录成功-->
-            <result name="success">/pages/frame.jsp</result>
+            <result name="success" type="redirect">/pages/frame.jsp</result>
             <!--登录失败-->
-            <result name="login">/pages/login.jsp</result>
+            <!--<result name="login">/pages/login.jsp</result>-->
             <!--员工管理-->
             <result name="findAll">/pages/staff/listStaff.jsp</result>
              <!--通过id查询员工-->
@@ -23,6 +40,15 @@
             <result name="success">/pages/staff/editStaff.jsp</result>
 
         </action>
+
+
+
     </package>
+
+
+
+
+
+
 
 </struts>

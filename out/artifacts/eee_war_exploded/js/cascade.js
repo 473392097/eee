@@ -14,7 +14,7 @@ $(function () {
 
             for ( var i=0;i<dep_obj.length;i++){
                 //alert(dep_obj[i].depName);
-                $("#dep").append("<option value='" + dep_obj[i].depId + "'>" + dep_obj[i].depName + "</option>");
+                $("#dep").append("<option value='"+dep_obj[i].depId+"'>"+(dep_obj[i]).depName+"</option>");
 
             }
 

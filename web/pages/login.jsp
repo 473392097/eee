@@ -32,23 +32,24 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 <META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
 <BODY leftMargin=0 topMargin=0 marginwidth="0" marginheight="0" background="${pageContext.request.contextPath}/images/rightbg.jpg">
 <div ALIGN="center">
+	<s:debug></s:debug>
 	<table border="0" width="1140px" cellsp@Transactionalacing="0" cellpadding="0" id="table1" >
 		<tr>
 			<td height="193"></td>
 			@Transactional
 		</tr>
 		<tr align="center" >
-		 
+
 			<td class="login_msg" width="400">
 				<s:form action="first_staffLogin" namespace="/" method="post">
-					
+
 					<font size="6" color="#ffffff">
 						欢迎使用CRM系统
 					</font> 
 					<br/>
 					<br/>
 					<font color="#ff0000">
-						错误提示
+						<s:fielderror></s:fielderror>
 					</font> 
 					<br/>
 					用户名：<input type="text" name="crmStaff.loginName" class="msg" /><br/><br/>

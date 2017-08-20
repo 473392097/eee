@@ -35,12 +35,12 @@ public class FirstAction extends ActionSupport{
         CrmStaff crmStaff1 = staffService.login(crmStaff);
         if(crmStaff1 != null){
             Map<String, Object> map =  ActionContext.getContext().getSession();
-            map.put("session", crmStaff);
+            map.put("session", crmStaff1);
             return  SUCCESS;
         }
             // 添加错误信息 -- 字段错误 我们显示所有的错误信息
-        addFieldError("crmStaff.loginName", "用户名或密码错误");
-            return LOGIN;
+        this.addFieldError("crmStaff.loginName", "用户名或密码错误");
+        return LOGIN;
     }
 
 
@@ -49,9 +49,8 @@ public class FirstAction extends ActionSupport{
      public  String findAll(){
        List<CrmStaff> allStaff = staffService.findAllStaff();
        System.out.println( "部门id是"+allStaff.get(0).getPost().getDepartment().getDepName());
-        ActionContext.getContext().put("allStaff",allStaff);
-         System.out.println("到这里了");
-
+       ActionContext.getContext().put("allStaff",allStaff);
+       System.out.println("到这里了");
         return "findAll";
      }
 
