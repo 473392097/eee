@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.lanou.bean.CrmDepartment;
 import com.lanou.bean.CrmPost;
 import com.lanou.bean.CrmStaff;
-import com.lanou.service.DepartServiceImpl;
+
 import com.lanou.service.StaffServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,7 +27,6 @@ public class FirstAction extends ActionSupport{
     private StaffServiceImpl staffService;
     private CrmDepartment crmDepartment;
     private CrmStaff crmStaff;
-    private DepartServiceImpl departService;
     private CrmPost crmPost;
 
     //登录
@@ -88,8 +87,33 @@ public class FirstAction extends ActionSupport{
          System.out.println();
          System.out.println("需要更新的staff为:"+crmStaff);
          staffService.update(crmStaff);
+         System.out.println("到这里了");
+         System.out.println(staffService.update(crmStaff));
          return  "updatesuccess";
      }
+
+     //添加
+     public String save(){
+         System.out.println(crmStaff.toString());
+         System.out.println("id为"+crmStaff.getStaffId());
+         System.out.println("添加");
+         staffService.save(crmStaff);
+         System.out.println("再添加");
+         return "tianjia";
+     }
+     //条件查询
+    public String limitSelect(){
+//
+        System.out.println("进入actionl");
+        System.out.println(crmStaff);
+        List<CrmStaff> crmStaffs = staffService.limitSelct(crmStaff.getStaffName(),crmStaff.getPost().getPostId(),crmStaff.getPost().getDepartment().getDepId());
+        System.out.println("高级查询的结果:"+crmStaffs);
+        System.out.println("到这了");
+        ActionContext.getContext().put("allStaff",crmStaffs);
+//        System.out.println(crmStaffs.get(0).toString());
+
+         return "findAll";
+    }
 
     public StaffServiceImpl getStaffService() {
         return staffService;

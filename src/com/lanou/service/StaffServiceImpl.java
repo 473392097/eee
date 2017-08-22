@@ -53,7 +53,16 @@ public class StaffServiceImpl implements StaffService {
         return null;
     }
 
-    // 查询部门
+    @Override
+    public void save(CrmStaff crmStaff) {
+        System.out.println("我是service层");
+        staffDao.save(crmStaff);
+    }
+
+    public List<CrmStaff> limitSelct(String staffName,String postName,String depName){
+        return staffDao.limitSelect(staffName,postName,depName);
+
+    }
 
 
     public StaffDaoImpl getStaffDao() {

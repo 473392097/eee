@@ -18,5 +18,7 @@ public interface StaffService {
     public CrmStaff findByid(String staffId);
     public List<CrmDepartment> findDepart();
     public String update(CrmStaff crmStaff);
+    //编辑
+    public void save(CrmStaff crmStaff);
 
 }

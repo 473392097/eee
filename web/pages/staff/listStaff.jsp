@@ -36,32 +36,27 @@
 </table>
 
 <!-- 查询条件：马上查询 -->
-<form id="conditionFormId" action="${pageContext.request.contextPath}/staff/staffAction_findAll" method="post">
+<form id="conditionFormId" action="${pageContext.request.contextPath}/first_limitSelect.action"  method="post">
 	<table width="88%" border="0" style="margin: 20px;" >
 	  <tr>
 	    <td width="80px">部门：</td>
 	    <td width="200px">
 	    	
-	    	<select name="" id="dep">
+	    	<select name="crmStaff.post.department.depId" id="dep">
 			    <option value="">--请选择部门--</option>
-			    <%--<option value="ee050687bd1a4455a153d7bbb7000001">教学部</option>--%>
-			    <%--<option value="ee050687bd1a4455a153d7bbb7000002">咨询部</option>--%>
 			</select>
 
 	    </td>
 	    <td width="80px" >职务：</td>
 	    <td width="200px" >
 	    	
-	    	<select name="" id="post">
+	    	<select name="crmStaff.post.postId" id="post">
 			    <option value="">--请选择职务--</option>
-			    <%--<option value="ee050687bd1a4455a153d7bbb7000003">总监</option>--%>
-			    <%--<option value="ee050687bd1a4455a153d7bbb7000004">讲师</option>--%>
-			    <%--<option value="ee050687bd1a4455a153d7bbb7000005">主管</option>--%>
 			</select>
 
 	    </td>
 	    <td width="80px">姓名：</td>
-	    <td width="200px" ><input type="text" name="staffName" size="12" /></td>
+	    <td width="200px" ><input type="text" name="crmStaff.staffName" size="12" /></td>
 	    <td ></td>
 	  </tr>
 	</table>
@@ -133,5 +128,10 @@
 </table>
 --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/cascade.js"></script>
+ <script type="text/javascript">
+     function condition() {
+         document.getElementById("conditionFormId").submit();
+     }
+ </script>
 </body>
 </html>

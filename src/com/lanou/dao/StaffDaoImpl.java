@@ -54,8 +54,16 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
 
     @Override
     public String update(CrmStaff crmStaff) {
+        System.out.println("我是dao层");
         this.getHibernateTemplate().update(crmStaff);
+        System.out.println("我是dao2层");
         return null;
+    }
+
+    @Override
+    public void save(CrmStaff crmStaff) {
+        System.out.println("我是dao层");
+        this.getHibernateTemplate().save(crmStaff);
     }
 
     public List<CrmDepartment> findDepart(){
@@ -69,6 +77,48 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
     public List<CrmPost> findAll(int depId) {
         String hql = "from CrmPost where department.id = ?";
         return (List<CrmPost>) this.getHibernateTemplate().find(hql,depId);
+    }
+
+
+    //高级查询
+    public List<CrmStaff> limitSelect(String staffName,String postName,String depName){
+       String str = "";
+       if(depName!=null && !depName.equals("")){
+            str+=" s.post.department.depId =:dn and";
+       }
+        if(postName!=null && !postName.equals("")){
+            str+=" s.post.postId =:pn and";
+        }
+        if(staffName!=null && !staffName.equals("")){
+            str+=" s.staffName =:sn";
+        }
+        StringBuilder sb;
+        if(str!=null && !str.equals("")){
+            sb=new StringBuilder(str);
+            sb.insert(0," where ");
+            str=sb.toString();
+        }
+
+        String hql = "from CrmStaff as s "+str;
+        if(hql.endsWith("and")){
+             hql=hql.substring(0,hql.length()-3);
+        }
+        System.out.println("拼接的sql为:"+hql);
+        Session session =factory.getCurrentSession();
+        System.out.println(session);
+        System.out.println(hql);
+        System.out.println(staffName);
+        Query query =session.createQuery(hql);
+
+        if(staffName!=null && !staffName.equals("")){
+            query.setParameter("sn",staffName);
+        }if(postName!=null && !postName.equals("")){
+            query.setParameter("pn",postName);
+        }if(depName!=null && !depName.equals("")){
+            query.setParameter("dn",depName);
+        }
+        List<CrmStaff> crmStaffs = query.list();
+        return crmStaffs;
     }
 
 

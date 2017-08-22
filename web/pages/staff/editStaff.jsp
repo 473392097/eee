@@ -38,9 +38,9 @@
 <s:debug></s:debug><s:property value="#request.crmDepartmentList[0].postSet"></s:property>
 <form action="/first_update" method="post" >
 	
-	<input type="hidden" name="crmStaff.staffId" value="<s:property value="#request.findStaff.staffId"/>"/>
-	
+
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
+		<input type="hidden" name="crmStaff.staffId" value="<s:property value="#request.findStaff.staffId"/>"/>
 	 <tr>
 	    <td>登录名：</td>
 	    <td><input type="text" name="crmStaff.loginName"   value="<s:property value="#request.findStaff.loginName"></s:property>"  /> </td>

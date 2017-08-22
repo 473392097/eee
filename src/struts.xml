@@ -34,11 +34,15 @@
              <!--通过id查询员工-->
             <result name="preEdit">/pages/staff/editStaff.jsp</result>
             <result name="updatesuccess" type="redirectAction">first_findAll</result>
+            <result name="tianjia" type="redirectAction">first_findAll</result>
         </action>
 
-        <action name="depart" class="com.lanou.action.DepartmentAction">
-            <result name="success">/pages/staff/editStaff.jsp</result>
 
+
+        <action name="second_*" class="courseAction" method="{1}">
+            <result name="findAll">/pages/coursetype/listCourse.jsp</result>
+            <result name="preEdit">/pages/coursetype/addOrEditCourse.jsp</result>
+            <result name="update" type="redirectAction">second_findAll</result>
         </action>
 
 

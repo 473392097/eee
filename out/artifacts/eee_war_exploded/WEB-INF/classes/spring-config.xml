@@ -77,18 +77,19 @@
         <property name="staffService" ref="staffService"></property>
     </bean>
 
-    <!--****************************************************************************-->
+    <!--***********************************课程*****************************************-->
 
-    <!--把hibernateTemplate依赖注入到departDao-->
-    <bean id="departDaoImpl" class="com.lanou.dao.DepartDaoImpl">
-        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   <bean id="courseDao" class="com.lanou.dao.CourseDao">
+       <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   </bean>
+
+    <bean id="courseService" class="com.lanou.service.CourseService">
+        <property name="courseDao" ref="courseDao"></property>
      </bean>
 
-    <bean  id="departService" class="com.lanou.service.DepartServiceImpl">
-        <property name="departDao"  ref="departDaoImpl"  ></property>
+    <bean id="courseAction" class="com.lanou.action.CourseAction">
+        <property name="CourseService" ref="courseService"></property>
     </bean>
-
-
 
 
 

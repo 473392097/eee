@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,18 +31,20 @@
   </tr>
 </table>
 
-<form  action="/crm2/coursetype/courseTypeAction_addOrEdit.action" method="post">
+
+
+<form  action="second_update.action" method="post">
 	
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	  <tr>
 	    <td width="10%">课程类别：</td>
-	    <td width="20%"><input type="text" name="courseName" value="JavaEE" /></td>
+	    <td width="20%"><input type="text" name="crmClasses.courseType.courseName" value="<s:property value="#request.getClass.courseType.courseName"></s:property>"   /></td>
 	    <td width="8%">总学时：</td>
-	    <td width="62%"><input type="text" name="total" value="1000" /></td>
+	    <td width="62%"><input type="text" name="crmClasses.courseType.total" value="<s:property value="#request.getClass.courseType.total"></s:property>" /></td>
 	  </tr>
 	  <tr>
 	    <td>课程费用：</td>
-	    <td><input type="text" name="courseCost" value="3000.0"/></td>
+	    <td><input type="text" name="crmClasses.courseType.courseCost" value="<s:property value="#request.getClass.courseType.courseCost"></s:property>"/></td>
 	    <td></td>
 	    <td></td>
 	  </tr>
@@ -52,9 +55,15 @@
 	    <td>&nbsp;</td>
 	  </tr>
 	  <tr>
-	    <td colspan="4"><textarea name="remark" cols="60" rows="10" ></textarea></td>
+	    <td colspan="4"><textarea id="remark" name="crmClasses.courseType.remark" cols="60" rows="10"  ></textarea></td>
 	  </tr>
 	</table>
 </form>
+
+<script>
+    document.getElementById("remark").value="<s:property value="#request.getClass.courseType.remark"></s:property>"
+</script>
+
+
 </body>
 </html>

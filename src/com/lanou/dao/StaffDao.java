@@ -17,7 +17,7 @@ public interface StaffDao{
      public CrmStaff findByid(String staffId);
      //部门和职务回显
      public String update(CrmStaff crmStaff);
-
+     public void save(CrmStaff crmStaff);
 
 
 }
