@@ -19,6 +19,7 @@ public class CrmClasses {
 
     //set和get方法
 
+
     public String getClassId() {
         return classId;
     }

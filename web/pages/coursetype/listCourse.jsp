@@ -78,26 +78,15 @@
 	<td width="11%" align="center">编辑</td>
   </tr>
   <%--数据展示，单行：tabtd1；双行：tabtd2 --%>
-	  <tr class="tabtd2">
-	    <td align="center">JavaEE </td>
-	    <td align="center"> </td>
-	    <td align="center">6000</td>
-	    <td align="center">18000.0</td>
-	  	<td width="11%" align="center">
-	  		
-	  		<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
-	  	</td>
-	  </tr>
 
-
-	<s:iterator value="#crmClasses" >
+	<s:iterator value="#crmCourseType"  >
 		<tr class="tabtd1">
-			<td align="center"><s:property value="name"/></td>
-			<td align="center"><s:property value="courseType.remark"/></td>
-			<td align="center"><s:property value="courseType.total" /></td>
-			<td align="center"><s:property value="courseType.courseCost" /></td>
+			<td align="center"><s:property value="courseName"/></td>
+			<td align="center"><s:property value="remark"/></td>
+			<td align="center"><s:property value="total" /></td>
+			<td align="center"><s:property value="courseCost" /></td>
 			<td width="7%" align="center">
-				<a href="${pageContext.request.contextPath}/second_preEdit?crmClasses.classId=<s:property value="classId"></s:property>    "><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
+				<a href="${pageContext.request.contextPath}/second_preEdit.action?crmCourseType.courseTypeId=<s:property value="courseTypeId"></s:property> "><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
 			</td>
 		</tr>
 	</s:iterator>

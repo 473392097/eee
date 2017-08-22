@@ -38,13 +38,13 @@
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	  <tr>
 	    <td width="10%">课程类别：</td>
-	    <td width="20%"><input type="text" name="crmClasses.courseType.courseName" value="<s:property value="#request.getClass.courseType.courseName"></s:property>"   /></td>
+	    <td width="20%"><input type="text" name="crmCourseType.courseName" value="<s:property value="#request.crmCourseTypes.courseName"></s:property>"   /></td>
 	    <td width="8%">总学时：</td>
-	    <td width="62%"><input type="text" name="crmClasses.courseType.total" value="<s:property value="#request.getClass.courseType.total"></s:property>" /></td>
+	    <td width="62%"><input type="text" name="crmCourseType.total" value="<s:property value="#request.crmCourseTypes.total"></s:property>" /></td>
 	  </tr>
 	  <tr>
 	    <td>课程费用：</td>
-	    <td><input type="text" name="crmClasses.courseType.courseCost" value="<s:property value="#request.getClass.courseType.courseCost"></s:property>"/></td>
+	    <td><input type="text" name="crmCourseType.courseCost" value="<s:property value="#request.crmCourseTypes.courseCost"></s:property>"/></td>
 	    <td></td>
 	    <td></td>
 	  </tr>
@@ -55,13 +55,13 @@
 	    <td>&nbsp;</td>
 	  </tr>
 	  <tr>
-	    <td colspan="4"><textarea id="remark" name="crmClasses.courseType.remark" cols="60" rows="10"  ></textarea></td>
+	    <td colspan="4"><textarea id="remark" name="crmCourseType.remark" cols="60" rows="10"  ></textarea></td>
 	  </tr>
 	</table>
 </form>
 
 <script>
-    document.getElementById("remark").value="<s:property value="#request.getClass.courseType.remark"></s:property>"
+    document.getElementById("remark").value="<s:property value="#request.crmCourseTypes.remark"></s:property>"
 </script>
 
 

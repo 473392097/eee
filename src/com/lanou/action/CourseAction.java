@@ -1,9 +1,11 @@
 package com.lanou.action;
 
 import com.lanou.bean.CrmClasses;
+import com.lanou.bean.CrmCourseType;
 import com.lanou.service.CourseService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,23 +14,27 @@ import java.util.List;
  * Created by lanouhn on 17/8/22.
  */
 public class CourseAction extends ActionSupport {
-    private CrmClasses crmClasses;
+    @Autowired
+    private CrmCourseType crmCourseType;
     private CourseService courseService;
 
 
     //查询所有
     public String  findAll(){
-      List<CrmClasses> crmClasses = courseService.findAll();
-        System.out.println("名字是"+crmClasses.get(0).getName());
-        System.out.println("费用是"+crmClasses.get(0).getCourseType().getCourseCost());
-
-        ActionContext.getContext().put("crmClasses",crmClasses);
+      List<CrmCourseType> crmCourseType = courseService.findAll();
+        System.out.println(crmCourseType.get(0).getCourseName());
+        ActionContext.getContext().put("crmCourseType",crmCourseType);
         return "findAll";
     }
 
     public String preEdit(){
-       CrmClasses getClass = courseService.findByid(crmClasses.getClassId());
-        ActionContext.getContext().put("getClass",getClass);
+
+        System.out.println("id"+ crmCourseType.getCourseTypeId());
+        System.out.println("编辑");
+        System.out.println("id"+ crmCourseType.getCourseTypeId());
+        CrmCourseType crmCourseTypes = courseService.findByid(crmCourseType.getCourseTypeId());
+        ActionContext.getContext().put("crmCourseTypes",crmCourseTypes);
+        System.out.println("编辑后");
         return "preEdit";
     }
 
@@ -36,8 +42,8 @@ public class CourseAction extends ActionSupport {
     //编辑
 
     public String update(){
-        System.out.println("要保存的数据是"+crmClasses.getCourseType().getCourseName());
-        courseService.update(crmClasses);
+        System.out.println("更新"+crmCourseType.getCourseName());
+        courseService.update(crmCourseType);
         return "update";
     }
 
@@ -52,11 +58,11 @@ public class CourseAction extends ActionSupport {
         this.courseService = courseService;
     }
 
-    public CrmClasses getCrmClasses() {
-        return crmClasses;
+    public CrmCourseType getCrmCourseType() {
+        return crmCourseType;
     }
 
-    public void setCrmClasses(CrmClasses crmClasses) {
-        this.crmClasses = crmClasses;
+    public void setCrmCourseType(CrmCourseType crmCourseType) {
+        this.crmCourseType = crmCourseType;
     }
 }

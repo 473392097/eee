@@ -1,17 +1,21 @@
 package com.lanou.bean;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by lanouhn on 17/8/16.
  */
+@Component
 public class CrmCourseType {
     private String courseTypeId;  	//课程类别Id
     private Double courseCost;		//费用
     private Integer total;			//总学时
     private String courseName;		//课程类别名称
     private String remark;	        //描述
+
 
     //课程类别和班级关系:一个课程类别可以有多个班级。
     private Set<CrmClasses> classesSet = new HashSet<CrmClasses>();

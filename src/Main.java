@@ -43,7 +43,7 @@ public class Main {
 //        List<CrmClasses> crmClassesList = query.list();
 //        System.out.println(crmClassesList);
 
-          String hql = "from CrmStaff ";
+          String hql = "from CrmClasses ";
           Query query = session.createQuery(hql);
           List<CrmStaff> crmClassesList = query.list();
           System.out.println(crmClassesList);

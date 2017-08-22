@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 
-@Transactional
+@Transactional(readOnly = false)
 public class StaffServiceImpl implements StaffService {
 
     private StaffDaoImpl staffDao;

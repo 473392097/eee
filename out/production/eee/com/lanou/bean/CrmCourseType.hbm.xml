@@ -13,8 +13,8 @@
     <property name="courseName"/>
     <!-- 课程类别和班级关系：一对多，一个课程类别可以有多个班级    -->
 
-        <set name="classesSet">
-            <key column="classesSet"></key>
+        <set name="classesSet"   inverse="true" lazy="false">
+            <key column="courseTypeId"></key>
             <one-to-many class="com.lanou.bean.CrmClasses"></one-to-many>
         </set>
     </class>
