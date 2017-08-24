@@ -21,7 +21,7 @@ public class CourseDao extends HibernateDaoSupport {
     @Autowired
     private SessionFactory factory;
 
-
+       //查询所有
        public List<CrmCourseType> findAll(){
            System.out.println("进入action");
            String  hql= "from CrmCourseType";
@@ -30,25 +30,24 @@ public class CourseDao extends HibernateDaoSupport {
 
 
 
-
+    //编辑 根据id查询
     public CrmCourseType findByid(String courseTypeId) {
-
         System.out.println("我是dao层");
         System.out.println("查询语句");
         return this.getHibernateTemplate().get(CrmCourseType.class, courseTypeId);
 
     }
-    public void update(CrmCourseType crmCourseType){
-           this.getHibernateTemplate().saveOrUpdate(crmCourseType); ;
-       }
+
+        //保存和更新
+        public void update(CrmCourseType crmCourseType){
+               this.getHibernateTemplate().saveOrUpdate(crmCourseType); ;
+           }
 
     //高级查询
     public List<CrmCourseType> superSelect(String courseName,String remark,int totalStart, int totalEnd, int costStart, int costEnd) {
 
 
-
-
-            //str
+            //where 后面语句的拼接
             String str ="";
             if (courseName != null && !courseName.equals("")) {
                 str += " s.courseName=:dn and";
@@ -61,20 +60,21 @@ public class CourseDao extends HibernateDaoSupport {
             //拼接sql语句
             String hql = "from CrmCourseType as s where" + str;
 
+            //对获取到的数据做判断
             if (totalStart != 0) {
-                str = " total>" + totalStart + " and";
+                str = " total>=" + totalStart + " and";
                 hql += str;
             }
             if (totalEnd != 0) {
-                str = " total<" + totalEnd + " and";
+                str = " total<=" + totalEnd + " and";
                 hql += str;
             }
             if (costStart != 0) {
-                str = " courseCost>" + costStart + " and";
+                str = " courseCost>=" + costStart + " and";
                 hql += str;
             }
             if (costEnd != 0) {
-                str = " courseCost<" + costEnd + " and";
+                str = " courseCost<=" + costEnd + " and";
                 hql += str;
             }
 
