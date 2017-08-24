@@ -92,6 +92,7 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
         if(staffName!=null && !staffName.equals("")){
             str+=" s.staffName =:sn";
         }
+
         StringBuilder sb;
         if(str!=null && !str.equals("")){
             sb=new StringBuilder(str);

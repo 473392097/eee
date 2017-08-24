@@ -29,6 +29,9 @@ public class CourseService {
      }
 
 
+     public List<CrmCourseType> superSelect(String courseName,String remark,int totalStart, int totalEnd, int costStart, int costEnd){
+          return  courseDao.superSelect(courseName,remark,totalStart,totalEnd,costStart,costEnd);
+     }
 
 
 

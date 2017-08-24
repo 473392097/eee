@@ -39,23 +39,23 @@
 
 <%--条件查询 start --%>
 
-<form action="${pageContext.request.contextPath}/coursetype/courseTypeAction_findAll.action" method="post">
+<form action="${pageContext.request.contextPath}/second_superSelect.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	  <tr>
 	    <td width="10%">课程类别：</td>
-	    <td><input type="text" name="courseName" size="30" value="" /></td>
+	    <td><input type="text" name="crmCourseType.courseName" size="30" value="" /></td>
 	  </tr>
 	  <tr>
 	    <td >课程简介：</td>
-	    <td > <input type="text" name="remark" size="30" value="" /></td>
+	    <td > <input type="text" name="crmCourseType.remark" size="30" value="" /></td>
 	  </tr>
 	  <tr>  
 	    <td >总学时：</td>
-	    <td ><input type="text" name="totalStart" size="12" value="" />  至  <input type="text" name="totalEnd" size="12" value="" /></td>
+	    <td ><input type="text" name="crmCourseType.totalStart" size="12" value="" />  至  <input type="text" name="crmCourseType.totalEnd" size="12" value="" /></td>
 	  </tr>
 	  <tr>
 	    <td>课程费用：</td>
-	    <td ><input type="text" name="lessonCostStart" size="12" value="" /> 至 <input type="text" name="lessonCostEnd" size="12" value="" /></td>
+	    <td ><input type="text" name="crmCourseType.costStart" size="12" value="" /> 至 <input type="text" name="crmCourseType.costEnd" size="12" value="" /></td>
 	  </tr>
 	</table>
 </form>
@@ -79,7 +79,7 @@
   </tr>
   <%--数据展示，单行：tabtd1；双行：tabtd2 --%>
 
-	<s:iterator value="#crmCourseType"  >
+	<s:iterator value="#findAll"  >
 		<tr class="tabtd1">
 			<td align="center"><s:property value="courseName"/></td>
 			<td align="center"><s:property value="remark"/></td>
