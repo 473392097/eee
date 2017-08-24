@@ -37,14 +37,14 @@ public class FirstAction extends ActionSupport{
             map.put("session", crmStaff1);
             return  SUCCESS;
         }
-            // 添加错误信息 -- 字段错误 我们显示所有的错误信息
+        // 添加错误信息 -- 字段错误 我们显示所有的错误信息
         this.addFieldError("crmStaff.loginName", "用户名或密码错误");
         return LOGIN;
     }
 
 
 
-    //员工管理
+    //查询所有
      public  String findAll(){
        List<CrmStaff> allStaff = staffService.findAllStaff();
        System.out.println( "部门id是"+allStaff.get(0).getPost().getDepartment().getDepName());
@@ -53,7 +53,7 @@ public class FirstAction extends ActionSupport{
         return "findAll";
      }
 
-//基本数据回显
+     //基本数据回显
      public String preEdit() throws IOException {
          System.out.println(crmStaff);
          CrmStaff findStaff = staffService.findByid(crmStaff.getStaffId());
@@ -69,20 +69,17 @@ public class FirstAction extends ActionSupport{
      }
 
      //部门和职务回显
-
      public String findDepart() throws IOException {
          List<CrmDepartment>  crmDepartmentList = staffService.findDepart();
-         //System.out.println(crmDepartmentList);
          System.out.println(JSON.toJSONString(crmDepartmentList));
-         //ActionContext.getContext().put("crmDepartmentList",crmDepartmentList);
-         //System.out.println(ActionContext.getContext().get("crmDepartmentList"));
          HttpServletResponse response=ServletActionContext.getResponse();
          response.setContentType("text/html;charset=utf-8");
-//         //将数据传入到前端
+         //将数据传入到前端
          response.getWriter().write(JSON.toJSONString(crmDepartmentList));
          return NONE;
      }
 
+     //编辑功能
      public String update(){
          System.out.println();
          System.out.println("需要更新的staff为:"+crmStaff);
@@ -92,7 +89,7 @@ public class FirstAction extends ActionSupport{
          return  "updatesuccess";
      }
 
-     //添加
+     //添加保存
      public String save(){
          System.out.println(crmStaff.toString());
          System.out.println("id为"+crmStaff.getStaffId());
@@ -101,20 +98,20 @@ public class FirstAction extends ActionSupport{
          System.out.println("再添加");
          return "tianjia";
      }
-     //条件查询
+
+     //条件查询(高级查询)
     public String limitSelect(){
-//
         System.out.println("进入actionl");
         System.out.println(crmStaff);
         List<CrmStaff> crmStaffs = staffService.limitSelct(crmStaff.getStaffName(),crmStaff.getPost().getPostId(),crmStaff.getPost().getDepartment().getDepId());
         System.out.println("高级查询的结果:"+crmStaffs);
         System.out.println("到这了");
         ActionContext.getContext().put("allStaff",crmStaffs);
-//        System.out.println(crmStaffs.get(0).toString());
-
          return "findAll";
     }
 
+
+    //get/set方法
     public StaffServiceImpl getStaffService() {
         return staffService;
     }

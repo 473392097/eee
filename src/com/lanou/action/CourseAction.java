@@ -16,10 +16,12 @@ import java.util.List;
 /**
  * Created by lanouhn on 17/8/22.
  */
-@Scope(value = "prototype")
+
 public class CourseAction extends ActionSupport {
 
+    //课程
     private CrmCourseType crmCourseType;
+    //service层的
     private CourseService courseService;
 
 
@@ -31,9 +33,8 @@ public class CourseAction extends ActionSupport {
         return "findAll";
     }
 
-    //测试
+    //基本数据回显示
     public String preEdit(){
-
         System.out.println("id"+ crmCourseType.getCourseTypeId());
         System.out.println("编辑");
         System.out.println("id"+ crmCourseType.getCourseTypeId());
@@ -43,26 +44,20 @@ public class CourseAction extends ActionSupport {
         return "preEdit";
     }
 
-
-    //编辑
-
+    //编辑功能
     public String update(){
         System.out.println("更新"+crmCourseType.getCourseName());
         courseService.update(crmCourseType);
         return "update";
     }
 
-
-    //高级查询  git测试用的
-    //测试用的   最近加的
+    //高级查询
     public String superSelect(){
 
         System.out.println("课程开始时间"+crmCourseType.getTotalStart());
         System.out.println("课程结束时间"+crmCourseType.getTotalEnd());
         System.out.println("最低费用"+crmCourseType.getCostStart());
         System.out.println("最高费用"+crmCourseType.getCostEnd());
-
-
         System.out.println("课程名称是"+crmCourseType.getCourseName());
         System.out.println("课程名称是"+crmCourseType.getRemark());
         List<CrmCourseType> crmCourseTypess = courseService.superSelect(crmCourseType.getCourseName(),crmCourseType.getRemark(),crmCourseType.getTotalStart(),crmCourseType.getTotalEnd(),crmCourseType.getCostStart(),crmCourseType.getCostEnd());
@@ -71,7 +66,7 @@ public class CourseAction extends ActionSupport {
     }
 
 
-
+    //get/set方法
     public CourseService getCourseService() {
         return courseService;
     }

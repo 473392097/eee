@@ -87,13 +87,9 @@
         <property name="courseDao" ref="courseDao"></property>
      </bean>
 
-    <bean id="courseAction" class="com.lanou.action.CourseAction">
+    <bean id="courseAction" class="com.lanou.action.CourseAction" scope="prototype">
         <property name="CourseService" ref="courseService"></property>
     </bean>
-
-
-
-
 
 
 

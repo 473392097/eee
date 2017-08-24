@@ -86,6 +86,8 @@
 			<td align="center"><s:property value="total" /></td>
 			<td align="center"><s:property value="courseCost" /></td>
 			<td width="7%" align="center">
+
+
 				<a href="${pageContext.request.contextPath}/second_preEdit.action?crmCourseType.courseTypeId=<s:property value="courseTypeId"></s:property> "><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
 			</td>
 		</tr>
