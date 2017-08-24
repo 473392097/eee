@@ -31,6 +31,7 @@ public class CourseAction extends ActionSupport {
         return "findAll";
     }
 
+    //测试
     public String preEdit(){
 
         System.out.println("id"+ crmCourseType.getCourseTypeId());
