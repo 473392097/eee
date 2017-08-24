@@ -52,7 +52,8 @@ public class CourseAction extends ActionSupport {
     }
 
 
-    //高级查询
+    //高级查询  git测试用的
+    //测试用的
     public String superSelect(){
 
         System.out.println("课程开始时间"+crmCourseType.getTotalStart());
